@@ -2,12 +2,6 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <nav className={styles.navbar}>
       {/* Left logo */}
@@ -15,21 +9,8 @@ const Navbar = () => {
         <img className={styles.facelogo} src="/PranayLogo.png" alt="logo" />
       </div>
 
-      {/* Hamburger icon for mobile */}
-      <div className={styles.hamburger} onClick={toggleMenu}>
-        <div
-          className={`${styles.bar} ${isOpen ? styles.changeBar1 : ""}`}
-        ></div>
-        <div
-          className={`${styles.bar} ${isOpen ? styles.changeBar2 : ""}`}
-        ></div>
-        <div
-          className={`${styles.bar} ${isOpen ? styles.changeBar3 : ""}`}
-        ></div>
-      </div>
-
       {/* Center links */}
-      <ul className={`${styles.links} ${isOpen ? styles.active : ""}`}>
+      <ul className={styles.links}>
         <li className={styles.linkItem}>
           <a className={styles.link} href="/about">
             ABOUT

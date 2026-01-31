@@ -5,6 +5,7 @@ import About from "../src/components/About";
 import Project from "../src/components/Project";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
