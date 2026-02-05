@@ -8,13 +8,13 @@ const Home = () => {
       <Navbar />
       <div className={styles.hero}>
         <img
-          src="/BrushStroke.png"
+          src="/Portfolio/BrushStroke.png"
           className={styles.bckImage}
           alt="Background lines"
         />
         <div className={styles.imageContainer}>
           <img
-            src="/PranayPicture.png"
+            src="/Portfolio/PranayPicture.png"
             className={styles.heroImage}
             alt="Pranay's face"
           />

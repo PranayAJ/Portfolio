@@ -5,7 +5,11 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       {/* Left logo */}
       <div className={styles.logo}>
-        <img className={styles.facelogo} src="/PranayLogo.png" alt="logo" />
+        <img
+          className={styles.facelogo}
+          src="/Portfolio/PranayLogo.png"
+          alt="logo"
+        />
       </div>
 
       {/* Center links */}
@@ -29,7 +33,11 @@ const Navbar = () => {
 
       {/* Right logo */}
       <div className={styles.logo}>
-        <img className={styles.githublogo} src="/github-mark.png" alt="logo" />
+        <img
+          className={styles.githublogo}
+          src="/Portfolio/github-mark.png"
+          alt="logo"
+        />
       </div>
     </nav>
   );
