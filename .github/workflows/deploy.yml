@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Build for GitHub Pages
+        run: |
+          echo "VITE_DEPLOY_TARGET=github" > .env.production
+          echo "VITE_ROUTER_BASE=/Portfolio" >> .env.production
+          npm run build
+
+      - name: Add noindex for SEO
+        run: |
+          # Add robots.txt to prevent indexing (avoid duplicate content SEO issues)
+          echo "User-agent: *" > build/robots.txt
+          echo "Disallow: /" >> build/robots.txt
+
+          # Update base href for GitHub Pages
+          sed -i 's|<base href="/" />|<base href="/Portfolio/" />|g' build/index.html
+
+          # Add noindex meta tag to prevent search engine indexing
+          sed -i 's|<meta name="viewport"|<meta name="robots" content="noindex, nofollow" />\n    <meta name="viewport"|g' build/index.html
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy to GitHub Pages from main branch"
