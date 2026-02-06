@@ -4,16 +4,18 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Project";
 import Contact from "./components/Contact";
+import Snowflake from "./components/Snowflake";
 
 function App() {
   return (
-    <div>
+    <>
+      <Snowflake />
       <Hero />
       <About />
       <Skills />
       <Projects />
       <Contact />
-    </div>
+    </>
   );
 }
 
