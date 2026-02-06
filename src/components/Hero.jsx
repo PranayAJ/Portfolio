@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilePic from "../../public/PranayPicture.png";
-import ProfileLogo from "../../PranayLogo.png";
+import ProfileLogo from "../../public/PranayLogo.png";
 
 const Hero = () => {
   return (
