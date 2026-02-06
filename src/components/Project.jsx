@@ -15,7 +15,7 @@ const projects = [
   },
 ];
 
-const Projects = () => {
+const Project = () => {
   return (
     <section id="projects" className="section projects">
       <h2>Projects</h2>
@@ -49,4 +49,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Project;

@@ -70,9 +70,11 @@ body {
 .nav {
   position: relative;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0px;
+  padding: 20px 40px 10px 5px;
+  z-index: 1;
 }
 
 .logo {
