@@ -58,8 +58,8 @@ body {
    Hero Section
    ========================= */
 .hero {
-  height: 100vh;
   position: relative;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -73,6 +73,7 @@ body {
   background: rgba(255, 255, 255, 0.75);
   mix-blend-mode: multiply;
   pointer-events: none;
+  z-index: -1;
 }
 
 [data-theme="dark"] .hero::before {
@@ -90,6 +91,7 @@ body {
   top: -10px;
   right: -200px;
   filter: blur(20px);
+  z-index: -2;
 }
 
 /* =========================
@@ -555,7 +557,6 @@ body {
     align-items: center;
     gap: 4rem;
   }
-
   .profile-img {
     margin-bottom: 50px;
     width: 12rem;
