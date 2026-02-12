@@ -155,6 +155,7 @@ body {
   position: relative;
   flex: 1;
   display: flex;
+  gap: 7rem;
   justify-content: center;
   padding: 0 2rem;
   align-items: center;
@@ -552,7 +553,7 @@ body {
   .hero-content {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .profile-img {
