@@ -7,6 +7,14 @@ import { useTheme } from "../ThemeContext";
 const Hero = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const downloadResume = () => {
+    const link = document.createElement("a"); // file in public folder
+    link.href = "https://pranayaj.github.io/Portfolio/PranayResume.pdf";
+    link.download = "PranayResume";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <header className="hero">
       <nav className="nav .highlight">
@@ -57,9 +65,9 @@ const Hero = () => {
       </div>
 
 
-      <a className="resume-btn" href="/PranayResume.pdf" download>
+      <button className="resume-btn" onClick={downloadResume}>
         <span className="btn-text">Download Resume</span>
-      </a>
+      </button>
     </header >
   );
 };
