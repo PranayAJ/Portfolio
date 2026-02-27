@@ -9,32 +9,54 @@
 }
 
 :root {
-  --bg: #ffffff;
-  --text: #000000;
-  --muted: #222;
+  /* =========================
+     Light Theme
+     ========================= */
+  --bg: #f0f4f8;
+  /* softer white, reduces glare */
+  --text: #0f1b33;
+  /* deep blue-black for readability */
+  --muted: #4a5568;
+  /* neutral grey for secondary text */
   --primary: #2b6cb0;
+  /* your accent color */
   --white: #ffffff;
   --card-bg: #ffffff;
+  /* subtle card elevation */
   --soft-bg: #eef4ff;
-  --shadow: rgba(0, 0, 0, 0.25);
+  /* gentle background for sections */
+  --shadow: rgba(0, 0, 0, 0.15);
+  /* softer shadow for depth */
   --highlight: #0f1b33;
-  --border: rgba(0, 0, 0, 0.15);
+  /* accent for hover, borders, highlights */
+  --border: rgba(0, 0, 0, 0.08);
+  /* subtle borders */
 }
 
 /* =========================
    Dark Theme Variables
    ========================= */
 [data-theme="dark"] {
-  --bg: #121212;
-  --text: #ffffff;
-  --muted: #cfcfcf;
-  --primary: #4c8dff;
-  --white: #1e1e1e;
-  --card-bg: #1e1e1e;
-  --soft-bg: #1a2333;
+  --bg: #0b0f1a;
+  /* pure dark base to make colors pop */
+  --text: #e5e7eb;
+  /* light grey for high contrast */
+  --muted: #9ca3af;
+  /* softer grey for secondary text */
+  --primary: #38bdf8;
+  /* matches your dark background animation */
+  --white: #ffffff;
+  /* for text over dark cards if needed */
+  --card-bg: #1a2333;
+  /* slightly lighter than bg to create layers */
+  --soft-bg: #141b2b;
+  /* subtle section backgrounds */
   --shadow: rgba(0, 0, 0, 0.6);
-  --highlight: #ffffff;
-  --border: rgba(255, 255, 255, 0.08);
+  /* stronger shadow for depth */
+  --highlight: #818cf8;
+  /* glowing accent for hover & focus */
+  --border: rgba(255, 255, 255, 0.1);
+  /* soft white border for cards */
 }
 
 body {
@@ -524,8 +546,8 @@ svg.twinkle {
   font-size: 0.75rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: var(--primary);
-  color: #fff;
+  background: var(--card-bg);
+  color: var(--primary);
   font-weight: 600;
 }
 
