@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <LiquidEther
-        colors={theme == "dark" ? ["#38BDF8", "#818CF8", "#C084FC"] : ["#00C6FF", "#72EDF2", "#A0E9FF"]}
+        colors={theme == "dark" ? ["#00C6FF", "#72EDF2", "#A0E9FF"] : ["#00C6FF", "#72EDF2", "#A0E9FF"]}
         mouseForce={20}
         cursorSize={100}
         isViscous
