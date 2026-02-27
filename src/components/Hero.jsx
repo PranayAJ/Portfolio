@@ -9,7 +9,7 @@ const Hero = () => {
 
   return (
     <header className="hero">
-      <nav className="nav">
+      <nav className="nav .highlight">
         <img
           className="logo-img"
           src={theme === "dark" ? ProfileLogoDark : ProfileLogo}
@@ -39,28 +39,28 @@ const Hero = () => {
 
       <div className="hero-content">
         <div className="hero-left">
-          <div className="hero-badge">
-            <span>Software Engineer</span>
-          </div>
-
           <h1>
             <span>Hi, I’m Pranay</span>
+            <div className="hero-badge">Software Engineer</div>
           </h1>
-
           <div className="hero-actions">
             <a className="btn primary" href="#projects">
               View My Work
             </a>
           </div>
         </div>
-
         <div className="hero-right">
           <div className="profile-frame">
             <img src={ProfilePic} alt="Pranay" className="profile-img" />
           </div>
         </div>
       </div>
-    </header>
+
+
+      <a className="resume-btn" href="/PranayResume.pdf" download>
+        <span className="btn-text">Download Resume</span>
+      </a>
+    </header >
   );
 };
 

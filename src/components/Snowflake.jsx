@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from '../ThemeContext';
 
 export default function Snow() {
   const isPaused = useRef(false);
-
+  const { theme, toggleTheme } = useTheme();
   useEffect(() => {
     const snow = document.getElementById("snow");
 
@@ -36,11 +37,10 @@ export default function Snow() {
     `;
 
     function createSnowflake() {
-      if (isPaused.current) return; // don't create snowflakes while paused
+      if (isPaused.current) return;
 
       const flake = document.createElement("div");
       flake.innerHTML = snowflakeSVG;
-
       flake.style.position = "absolute";
       flake.style.top = "-30px";
       flake.style.pointerEvents = "none";
@@ -53,7 +53,19 @@ export default function Snow() {
       flake.style.left = `${startX}vw`;
 
       const hue = Math.random() * 20 + 190;
-      flake.style.color = `hsl(${hue}, 100%, 75%)`;
+      if (theme === "dark") {
+        flake.style.color = `hsl(${hue}, 30%, 90%)`; // bright for dark mode
+
+      } else {
+        flake.style.color = `hsl(${hue}, 100%, 75%)`; // soft for light mode
+      }
+
+      // Apply twinkle animation
+      const svg = flake.querySelector("svg");
+      if (svg) svg.classList.add("twinkle");
+
+      // Add transition for opacity (for smooth fade)
+      flake.style.transition = "opacity 0.6s";
 
       const drift = Math.random() * 120 - 60;
       const duration = Math.random() * 5 + 4;
@@ -62,10 +74,10 @@ export default function Snow() {
       const rotateEnd = rotateStart + (Math.random() * 360 + 180);
 
       const start = performance.now();
-      const endY = window.innerHeight * 0.5;
+      const endY = window.innerHeight;
 
       function animate(now) {
-        if (isPaused.current) return; // stop animation immediately
+        if (isPaused.current) return;
 
         const t = (now - start) / (duration * 1000);
         if (t >= 1) {
@@ -87,15 +99,29 @@ export default function Snow() {
 
     const interval = setInterval(createSnowflake, 250);
 
-    // ---------- STOP ON SCROLL ----------
+    // ---------- FADE OUT ON SCROLL ----------
     const handleScroll = () => {
-      // pause + remove all snowflakes
-      isPaused.current = true;
-      snow.innerHTML = "";
-
-      // only resume when back at top
       if (window.scrollY === 0) {
+        // resume snow
         isPaused.current = false;
+        return;
+      }
+
+      // pause creating new snowflakes
+      isPaused.current = true;
+
+      // gradually fade out existing snowflakes
+      const flakes = snow.children;
+      for (let flake of flakes) {
+        flake.style.opacity = "0"; // trigger CSS transition
+        // remove after transition
+        flake.addEventListener(
+          "transitionend",
+          () => {
+            flake.remove();
+          },
+          { once: true }
+        );
       }
     };
 
