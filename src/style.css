@@ -137,9 +137,9 @@ svg.twinkle {
 }
 
 .logo-img {
-  margin-left: 2rem;
   width: 5rem;
   height: 5rem;
+  margin-left: 2rem;
 }
 
 .nav-links {
@@ -304,9 +304,21 @@ svg.twinkle {
   box-shadow: 0 18px 60px var(--shadow);
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .logo-img {
+    width: 5rem;
+    height: 5rem;
+    margin-left: 0rem;
+  }
+}
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .logo-img {
+    width: 5rem;
+    height: 5rem;
+    margin-left: 0rem;
+  }
+}
 
 /* =========================
    Nav Right Wrapper
